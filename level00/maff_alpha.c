@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aponomar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 14:33:20 by aponomar          #+#    #+#             */
-/*   Updated: 2019/04/18 14:33:59 by aponomar         ###   ########.fr       */
+/*   Created: 2019/04/30 22:24:01 by aponomar          #+#    #+#             */
+/*   Updated: 2019/04/30 22:55:21 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,18 @@
 
 int main(void)
 {
-	write(1, "aBcDeFgHiJkLmNoPqRsTuVwXyZ\n", 27);
+	char a;
+	char b;
+
+	a = 'a';
+	b = 'B';
+	while (b <= 'Z')
+	{
+		write(1, &a, 1);
+		a = a + 2;
+		write(1, &b, 1);
+		b = b + 2;
+	}
+	write(1, "\n", 1);
+	return (0);
 }
