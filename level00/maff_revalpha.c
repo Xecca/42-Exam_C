@@ -5,14 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aponomar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 14:35:57 by aponomar          #+#    #+#             */
-/*   Updated: 2019/04/05 14:37:34 by aponomar         ###   ########.fr       */
+/*   Created: 2019/05/01 15:48:14 by aponomar          #+#    #+#             */
+/*   Updated: 2019/05/01 16:12:19 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(void)
+int main(void)
 {
-	write(1, "zYxWvUtSrQpOnMlKjIhGfEdCbA\n", 27);
+	char	z;
+	char	y;
+
+	z = 'z';
+	y = 'Y';
+	while (z >= 'b' && y >= 'A')
+	{
+		write(1, &z, 1);
+		z = z - 2;
+		write(1, &y, 1);
+		y = y -2;
+	}
+	write(1, "\n", 1);
 }
