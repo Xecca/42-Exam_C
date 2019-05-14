@@ -12,21 +12,32 @@
 
 #include <stdlib.h>
 
-char	*ft_strdup(char *src)
+char		*ft_strdup(char *src)
 {
-	char *s;
-	int	len;
+	char	*a;
+	int		i;
 
-	len = 0;
-	while (src[len])
-		len++;
-	if (!(s = (char *)malloc(sizeof(char) * (len + 1))))
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	i = i + 1;
+	a = (char*)malloc(i * sizeof(char));
+	if (a == NULL)
 		return (NULL);
-	s[len] = '\0';
-	while (len >= 0)
+	i--;
+	while (i >= 0)
 	{
-		s[len] = src[len];
-		len--;
+		a[i] = src[i];
+		i--;
 	}
-	return (s);
+	return (a);
 }
+/*
+    int main() {
+    char *str = "Helloworldecckiy";
+    char *result;
+    result = ft_strdup(str);
+    printf("The string : %s", result);
+    return 0;
+    }
+*/
