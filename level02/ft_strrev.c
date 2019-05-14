@@ -10,22 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrev(char *str)
+char		*ft_strrev(char *str)
 {
-	int	i;
-	int len;
-	char tmp;
+	char	temp;
+	int		b;
+	int		i;
 
-	len = 0;
-	while (str[len])
-		len += 1;
-	i = -1;
-	while (++i < --len)
+	b = 0;
+	i = 0;
+	while (str[i])
+		i++;
+	i--;
+	while (i >= b)
 	{
-		tmp = str[i];
-		str[i] = str[len];
-		str[len] = tmp;
+		temp = str[b];
+		str[b] = str[i];
+		str[i] = temp;
+		b++;
+		i--;
 	}
-	str[i] = '\0';
 	return (str);
 }
