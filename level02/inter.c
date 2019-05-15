@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aponomar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aponomar <aponomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/15 22:27:07 by aponomar          #+#    #+#             */
-/*   Updated: 2019/04/15 22:31:34 by aponomar         ###   ########.fr       */
+/*   Created: 2019/05/14 14:13:31 by aponomar          #+#    #+#             */
+/*   Updated: 2019/05/14 17:04:49 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,27 @@ int	main(int argc, char **argv)
 {
 	int i;
 	int j;
-	int a;
+	int src[255] = {0};
 
-	j = 0;
+	i = 0;
 	if (argc == 3)
 	{
-		while (argv[1][j])
+		while (argv[1][i])
 		{
-			a = 0;
-			i = 0;
-			while (i < j)
+			j = 0;
+			while (argv[2][j])
 			{
-				if (argv[1][i] == argv[1][j])
+				if (argv[1][i] == argv[2][j] && src[argv[2][j]] == 0)
 				{
-					a = 1;
-					break;
+					write(1, &argv[2][j], 1);
+					src[argv[2][j]] = 1;
+					j++;
 				}
-				i++;
+				j++;
 			}
-			if (a == 0)
-			{
-				i = 0;
-				while (argv[2][i])
-				{
-					if (argv[1][j] == argv[2][i])
-					{
-						write(1, &argv[1][j], 1);
-						break;
-					}
-					i++;
-				}
-			}
-			j++;
+			i++;
 		}
 	}
 	write(1, "\n", 1);
+	return (0);
 }
