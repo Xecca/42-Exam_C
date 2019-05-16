@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aponomar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aponomar <aponomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 01:17:33 by aponomar          #+#    #+#             */
-/*   Updated: 2019/04/16 01:18:52 by aponomar         ###   ########.fr       */
+/*   Created: 2019/05/15 17:03:18 by aponomar          #+#    #+#             */
+/*   Updated: 2019/05/15 17:08:40 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_power_of_2(unsigned int n)
+int is_power_of_2(unsigned int n)
 {
-	if (n == 0)
-		return (0);
-	while (n % 2 == 0)
-		n /= 2;
-	return ((n == 1) ? 1 : 0);
+    if (n == 0)
+        return (0);
+    while (n % 2 == 0)
+        n /= 2;
+    if (n == 1)
+        return (1);
+    else
+        return (0);   
 }
