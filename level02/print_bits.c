@@ -25,9 +25,7 @@ void    print_bits(unsigned char octet)
             octet = octet % div;
         }
         else
-        {
             write(1, "0", 1);
-        }
         div = div / 2;
     }
 }
