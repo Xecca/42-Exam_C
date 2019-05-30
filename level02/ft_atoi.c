@@ -12,28 +12,28 @@
 
 #include <stdio.h>
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *nptr)
 {
-	int sign;
-	long r;
+	long long int	sign;
+	long long int	nbr;
 
-	r = 0;
+	nbr = 0;
 	sign = 1;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-')
+	while (*nptr == ' ' || *nptr == '\n' || *nptr == '\r'
+		|| *nptr == '\t' || *nptr == '\v' || *nptr == '\f')
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		sign = -1;
-		str++;
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
 	}
-	if (*str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		r = r * 10 + *str - '0';
-		str++;
+		nbr = (nbr * 10) + (long long int)(*nptr - '0');
+		nptr++;
 	}
-	return (sign * (int)r);
+	return (nbr * sign);
 }
 
 int	main(void)
