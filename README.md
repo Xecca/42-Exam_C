@@ -1,3 +1,3 @@
-## Exam for Beginner in 42 Silicon Valley School
+# Exam for Beginner in 42 Silicon Valley School
 
-# Level 0:
+## Level 0:
