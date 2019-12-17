@@ -6,23 +6,54 @@
 /*   By: aponomar <aponomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 10:50:37 by aponomar          #+#    #+#             */
-/*   Updated: 2019/12/17 14:03:20 by aponomar         ###   ########.fr       */
+/*   Updated: 2019/12/17 14:06:12 by aponomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
+// #include <stdio.h>
 
-void print_array(int *ptr, size_t length)            
-{         
-    //for statement to print values using array             
-    size_t i = 0;
-    while (i < length)
+// void print_array(int *ptr, size_t length)            
+// {         
+//     //for statement to print values using array             
+//     size_t i = 0;
+//     while (i < length)
+// 	{
+//     	printf("%d\n", ptr[i]);
+// 		i++;
+// 	}
+// }   
+
+// version 1 ("normal"):
+int		*ft_rrange(int start, int end)
+{
+	int *array;
+	int n;
+	int i;
+
+	n = 1;
+	i = 0;
+	if (start == end)
+		n = 1;
+	else if (start > end)
+		n = start - end;
+	else
+		n = end - start;
+	array = (int *)malloc(sizeof(int) * (n));
+	while (i <= n)
 	{
-    	printf("%d\n", ptr[i]);
+		if (start > end)
+			array[i] = start - i;
+		else
+			array[i] = start + i;
 		i++;
 	}
-}   
+	if (start != end)
+		n++;
+	//printf("n = %d\n", n);
+	//print_array(array, n);
+	return (array);
+}
 
 // version 2 ("complex-stupid"):
 // int		ft_length_array(int start, int end)
@@ -86,37 +117,6 @@ void print_array(int *ptr, size_t length)
 // 	return (array);
 // }
 
-// version 1 ("normal"):
-int		*ft_rrange(int start, int end)
-{
-	int *array;
-	int n;
-	int i;
-
-	n = 1;
-	i = 0;
-	if (start == end)
-		n = 1;
-	else if (start > end)
-		n = start - end;
-	else
-		n = end - start;
-	array = (int *)malloc(sizeof(int) * (n));
-	while (i <= n)
-	{
-		if (start > end)
-			array[i] = start - i;
-		else
-			array[i] = start + i;
-		i++;
-	}
-	if (start != end)
-		n++;
-	printf("n = %d\n", n);
-	print_array(array, n);
-	return (array);
-}
-
 int main()
 {
 	int st  = 11;
@@ -126,3 +126,4 @@ int main()
 
 	return (0);
 }
+
